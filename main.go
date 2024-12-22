@@ -6,10 +6,6 @@ import (
 )
 
 func main() {
-	rebis.InitRebis()
-	protocol.RebisProtocol()
-	// rebis.MakeQuery("SET Hello World")
-	// rebis.MakeQuery("SET Magfu World")
-	// res := rebis.MakeQuery("GET Hello")
-	// fmt.Println(res)
+	db := rebis.InitRebis()
+	protocol.RebisProtocol(db)
 }

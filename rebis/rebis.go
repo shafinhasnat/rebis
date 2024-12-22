@@ -1,6 +1,8 @@
 package rebis
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Rebis struct {
 	Map map[string]string
@@ -8,13 +10,11 @@ type Rebis struct {
 
 func (r *Rebis) Set(key string, value string) string {
 	r.Map[key] = value
-	fmt.Println("SET", r)
 	return "OK"
 }
 
 func (r *Rebis) Get(key string) string {
 	res := r.Map[key]
-	fmt.Println("GET", key, res)
 	return res
 }
 
