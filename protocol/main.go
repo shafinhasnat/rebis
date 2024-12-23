@@ -7,7 +7,7 @@ import (
 	"github.com/shafinhasnat/rebis/rebis"
 )
 
-func RebisProtocol(db *rebis.Rebis) {
+func RebisProtocol(rebis *rebis.Rebis) {
 	listener, err := net.Listen("tcp", ":6666")
 	if err != nil {
 		fmt.Println("Error listening:", err)
@@ -22,10 +22,10 @@ func RebisProtocol(db *rebis.Rebis) {
 			fmt.Println("Error accepting connection:", err)
 			continue
 		}
-		handler(conn, db)
+		handler(conn, rebis)
 	}
 }
-func handler(conn net.Conn, db *rebis.Rebis) {
+func handler(conn net.Conn, rebis *rebis.Rebis) {
 	fmt.Println("Connection started")
 	for {
 		buffer := make([]byte, 128)
@@ -34,7 +34,7 @@ func handler(conn net.Conn, db *rebis.Rebis) {
 			fmt.Println("Connection closed:", err)
 			break
 		}
-		res := db.MakeQuery(string(buffer[:n]))
+		res := rebis.MakeQuery(string(buffer[:n]))
 		r := fmt.Sprintf("> %s\n", res)
 		_, err = conn.Write([]byte(r))
 		if err != nil {
