@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	db := rebis.InitRebis()
-	protocol.RebisProtocol(db)
+	rebis := rebis.InitRebis()
+	protocol.RebisProtocol(rebis)
 }
