@@ -3,6 +3,7 @@ package protocol
 import (
 	"fmt"
 	"net"
+	"strings"
 
 	"github.com/shafinhasnat/rebis/rebis"
 )
@@ -34,7 +35,10 @@ func handler(conn net.Conn, rebis *rebis.Rebis) {
 			fmt.Println("Connection closed:", err)
 			break
 		}
-		res := rebis.MakeQuery(string(buffer[:n]))
+		query := string(buffer[:n])
+		query = strings.TrimRight(query, "\n")
+		query = strings.TrimRight(query, "\r")
+		res := rebis.MakeQuery(query)
 		r := fmt.Sprintf("> %s\n", res)
 		_, err = conn.Write([]byte(r))
 		if err != nil {
