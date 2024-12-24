@@ -3,7 +3,7 @@
 tag = shafinhasnat/rebis
 
 build:
-	go build -o ./dist/rebis_$(VERSION) .
+	go build -ldflags "-s -w" -o ./dist/rebis_$(VERSION) .
 	docker build -t $(tag):$(VERSION) .
 	docker tag $(tag):$(VERSION) $(tag):latest
 
