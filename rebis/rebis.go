@@ -22,3 +22,8 @@ func (r *Rebis) Delete(key string) string {
 	delete(r.Map, key)
 	return "OK"
 }
+
+func (r *Rebis) Reset() string {
+	r.Map = make(map[string]string)
+	return "OK"
+}

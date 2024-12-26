@@ -7,6 +7,7 @@ rebis = RebisQuery(client)
 rebis.set("key", "value")
 rebis.get("key")
 rebis.delete("key")
+rebis.reset()
 ```
 
 

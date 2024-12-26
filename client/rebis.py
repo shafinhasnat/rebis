@@ -7,7 +7,7 @@ class RebisClient:
         print("Connected to server")
     def rebisQuery(self, query:str) -> str:
         self.sock.send(query.encode())
-        response = self.sock.recv(256).decode()
+        response = self.sock.recv(1024).decode()
         response = response[2:len(response)-1]
         return response
 class RebisQuery:
@@ -23,6 +23,10 @@ class RebisQuery:
         return response
     def delete(self, key: str) -> str:
         query = f"DELETE {key}"
+        response = self.client.rebisQuery(query)
+        return response
+    def reset(self) -> str:
+        query = f"RESET"
         response = self.client.rebisQuery(query)
         return response
 

@@ -9,14 +9,16 @@ go run main.go
 Rebis accepts single connection at a time. To make a connection, use `nc` or `telnet`.
 ```bash
 nc localhost 6666
+# or
 telnet localhost 6666
 ```
 Queries-
-```bash
-SET <key> <value>
-GET <key>
-DELETE <key>
-```
+
+- `SET <key> <value>` - Set a key-value pair. Key must be 16 characters or less and must not contain any spaces.
+- `GET <key>` - Get the value of a key
+- `DELETE <key>` - Delete a key
+- `RESET` - Reset the cache
+
 Or you can use docker to run rebis
 ```bash
 docker run -p 6666:6666 shafinhasnat/rebis:latest
