@@ -29,7 +29,7 @@ func RebisProtocol(rebis *rebis.Rebis) {
 func handler(conn net.Conn, rebis *rebis.Rebis) {
 	fmt.Println("Connection started")
 	for {
-		buffer := make([]byte, 128)
+		buffer := make([]byte, 1024)
 		n, err := conn.Read(buffer)
 		if err != nil {
 			fmt.Println("Connection closed:", err)
