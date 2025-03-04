@@ -1,0 +1,3 @@
+[submodule "clients/python"]
+	path = clients/python
+	url = git@github.com:shafinhasnat/rebis-python.git
