@@ -23,7 +23,7 @@ Or you can use docker to run rebis
 ```bash
 docker run -p 6666:6666 shafinhasnat/rebis:latest
 ```
-Rebis client for different languages - [documentation](client/README.md)
+<!-- Rebis client for different languages - [documentation](client/README.md) -->
 ## Build
 To build rebis, run the following commands-
 ```bash
